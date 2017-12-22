@@ -49,7 +49,7 @@ public class TEI2TXTEndToEndTest {
         if (container0115884.exists()) FileUtils.forceDelete(container0115884);
         FileUtils.copyDirectory(NormaFixtures.F0115884_DIR, container0115884);
         String args = "-q "+container0115884.toString()+
-                " --transform tom2txt --input fulltext.xml --output fulltext.txt --standalone true";
+                " --transform tom2txt --input fulltext.xml --output scholarly.html --standalone true";
         Norma norma = new Norma();
         norma.run(args);
         CTreeList cTreeList = norma.getArgProcessor().getCTreeList();
@@ -58,7 +58,7 @@ public class TEI2TXTEndToEndTest {
         CTree cTree = cTreeList.get(0);
         List<File> files = cTree.listFiles(true);
         LOG.trace(cTree+"; "+files);
-        File txtFile = new File(container0115884, "fulltext.txt");
+        File txtFile = new File(container0115884, "scholarly.html");
 		Assert.assertTrue(""+txtFile+" should exist", txtFile.exists());
     }
 
