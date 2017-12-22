@@ -43,4 +43,23 @@ public class TEI2TXTEndToEndTest {
 		Assert.assertTrue(""+htmlFile+" should exist", htmlFile.exists());
     }
 
+   @Test
+    public void testCreateTXTFromNewStylesheet() throws IOException {
+        File container0115884 = new File("target/plosone/0115884/");
+        if (container0115884.exists()) FileUtils.forceDelete(container0115884);
+        FileUtils.copyDirectory(NormaFixtures.F0115884_DIR, container0115884);
+        String args = "-q "+container0115884.toString()+
+                " --transform tom2txt --input fulltext.xml --output fulltext.txt --standalone true";
+        Norma norma = new Norma();
+        norma.run(args);
+        CTreeList cTreeList = norma.getArgProcessor().getCTreeList();
+        Assert.assertNotNull(cTreeList);
+        Assert.assertEquals("CTree/s",  1,  cTreeList.size());
+        CTree cTree = cTreeList.get(0);
+        List<File> files = cTree.listFiles(true);
+        LOG.trace(cTree+"; "+files);
+        File txtFile = new File(container0115884, "fulltext.txt");
+		Assert.assertTrue(""+txtFile+" should exist", txtFile.exists());
+    }
+
 }
