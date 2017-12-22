@@ -23,6 +23,7 @@
   <stylesheet name="wiley2html">/org/xmlcml/norma/pubstyle/wiley/toHtml.xsl</stylesheet>
   <stylesheet name="wk2html">/org/xmlcml/norma/pubstyle/wk/toHtml.xsl</stylesheet>
   <stylesheet name="tom2html">/org/xmlcml/norma/pubstyle/xml2myhtml.xsl</stylesheet>
+  <stylesheet name="tom2txt">/org/xmlcml/norma/pubstyle/tei/PMRXML2TXT.xsl</stylesheet>
   <!--  patents  -->
   <stylesheet name="uspto2html">/org/xmlcml/norma/patents/uspto/toHtml.xsl</stylesheet>
 </stylesheetList>
